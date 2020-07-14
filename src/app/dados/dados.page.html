@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-button color="danger" expand="full" (click)="presentModal()" style = "margin-top:30px;">Inserir Dados</ion-button>
+  <div style="margin-top:30px;text-align: center;" >
+    <ion-text *ngIf="dados.length == 0 ">Nenhum registro encontrado</ion-text>
+  </div>
+  <ion-grid *ngIf="dados.length > 0 ">
+    <ion-row>
+      <ion-col size="4">
+        <div>
+          Data
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Diast.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Sist.
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Pulso
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Posição
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of dados" (click)="excluir(item)">
+      <ion-col size="4">
+        <div>
+          {{item.value.data | date:"dd/MM HH:mm" }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{item.value.diastolica}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{item.value.sistolica}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{item.value.pulso}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{item.value.posicao}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

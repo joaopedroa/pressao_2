@@ -4,12 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'dados',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'dados',
+    loadChildren: () => import('./dados/dados.module').then( m => m.DadosPageModule)
+  },
+  {
+    path: 'dados-modal',
+    loadChildren: () => import('./modal/dados/dados-modal/dados-modal.module').then( m => m.DadosModalPageModule)
+  },
+  {
+    path: 'informacoes',
+    loadChildren: () => import('./informacoes/informacoes.module').then( m => m.InformacoesPageModule)
   }
 ];
 

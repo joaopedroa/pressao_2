@@ -8,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { IonicStorageModule } from '@ionic/storage';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,11 +17,13 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DatePipe,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
